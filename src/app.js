@@ -1,12 +1,10 @@
 import express from 'express'
 import api from './routes/api'
-
+import mainRoutes from './routes/main'
 
 const app = express()
 
-app.get('/', (req, res) => {
-	res.send('Hello World!')
-})
+app.get('/', mainRoutes)
 
 app.use('/api', api)
 
