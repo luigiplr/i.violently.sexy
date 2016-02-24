@@ -15,7 +15,7 @@ module.exports = function(grunt) {
             }
         },
         clean: {
-            build: ['build/']
+            build: ['./build/']
         },
         watchChokidar: {
             options: {
