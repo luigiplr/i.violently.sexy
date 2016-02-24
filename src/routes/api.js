@@ -16,11 +16,10 @@ router.post('/upload', busboy(), (req, res) => {
     }).on('finish', () => base64data.forEach(base64 => imgur.uploadBase64(base64)
         .then(json => {
             const imgurLink = json.data.link
-            res.send(`http://i.v.sexy${url.parse(imgurLink).path}`)
+            res.send(`http://${req.headers.host + url.parse(imgurLink).path}`)
         }).catch(err => {
             console.error(err.message)
         })))
-
 
     req.pipe(req.busboy)
 })
